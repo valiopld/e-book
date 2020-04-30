@@ -1,0 +1,96 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+}
+
+.Header {
+  background-color: var(--white);
+}
+.Header .header-container {
+  max-width: 80rem;
+  height: 4rem;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.Header .header-container .logo {
+  width: 18rem;
+  height: 12rem;
+  background-image: url("../assets/logobook.png");
+  background-size: cover;
+  background-position: 0;
+}
+.Header .header-container ul {
+  display: flex;
+  list-style: none;
+  align-self: flex-start;
+}
+.Header .header-container ul li {
+  margin: 0.5rem;
+  transition: all 0.3s;
+  font-size: 0.7rem;
+}
+.Header .header-container ul li:hover {
+  color: var(--green);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.TopNavBar {
+  width: 100%;
+  background-color: var(--dark);
+  border-top: 5px solid var(--green);
+  border-bottom: 5px solid var(--green);
+  color: azure;
+}
+
+.TopNavBar ul {
+  display: flex;
+  margin: 0 auto;
+  list-style: none;
+  justify-content: space-around;
+  max-width: 80rem;
+}
+.TopNavBar ul li {
+  padding: 0.8rem 0.5rem;
+  color: var(--yellow);
+  transition: all 0.3s;
+  width: 100%;
+  text-align: center;
+}
+.TopNavBar ul li:hover {
+  color: var(--dark);
+  cursor: pointer;
+  background-color: var(--yellow);
+}
+
+.SearchBox {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--dark);
+}
+.SearchBox input {
+  height: 3rem;
+}
+
+.categoryList {
+  min-height: 30rem;
+}
+.Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  background-color: rgb(24, 24, 24);
+  color: var(--white);
+  border-top: 2px solid var(--green);
+}
