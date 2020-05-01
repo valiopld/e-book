@@ -31,6 +31,17 @@ function App() {
       <div className="SearchBox">
         <input type="text" placeholder="Search a book..." />
       </div>
+      <div className="SideMenu">
+        <ul>
+          <li>List 1</li>
+          <li>List 2</li>
+          <li>List 3</li>
+          <li>List 4</li>
+          <li>List 5</li>
+          <li>List 6</li>
+          <li>List 7</li>
+        </ul>
+      </div>
       <div className="categoryList"></div>
       <div className="Footer">This is the Footer </div>
     </div>

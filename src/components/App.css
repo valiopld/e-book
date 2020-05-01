@@ -84,6 +84,56 @@
 .categoryList {
   min-height: 30rem;
 }
+
+.SideMenu {
+  position: fixed;
+  top: calc(50% - 7.5rem);
+  width: 10rem;
+  height: 15rem;
+  border: 1px solid black;
+  left: -10rem;
+  transition: left 0.5s;
+}
+.SideMenu::after {
+  content: "";
+  background-color: black;
+  height: 10rem;
+  width: 20px;
+  position: absolute;
+  top: 2.5rem;
+  left: 10rem;
+}
+.SideMenu:hover {
+  left: 0;
+}
+
+.SideMenu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: 100%;
+}
+
+.SideMenu ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
+  color: var(--whiteYellow);
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  border-top: 1px solid var(--white);
+}
+.SideMenu ul li:first-child {
+  border-top: none;
+}
+.SideMenu ul li:hover {
+  background-color: var(--white);
+  color: var(--dark);
+  cursor: pointer;
+}
+
 .Footer {
   display: flex;
   flex-direction: column;
