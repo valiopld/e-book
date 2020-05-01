@@ -31,6 +31,8 @@ function App() {
       <div className="SearchBox">
         <input type="text" placeholder="Search a book..." />
       </div>
+
+      <div className="Events"></div>
       <div className="SideMenu">
         <ul>
           <li>List 1</li>

@@ -81,6 +81,11 @@
   height: 3rem;
 }
 
+.Events {
+  width: 100%;
+  height: 8rem;
+}
+
 .categoryList {
   min-height: 30rem;
 }
@@ -88,20 +93,20 @@
 .SideMenu {
   position: fixed;
   top: calc(50% - 7.5rem);
-  width: 10rem;
-  height: 15rem;
+  width: 7rem;
+  height: 12rem;
   border: 1px solid black;
-  left: -10rem;
+  left: -7rem;
   transition: left 0.5s;
 }
 .SideMenu::after {
   content: "";
   background-color: black;
-  height: 10rem;
-  width: 20px;
+  height: 6rem;
+  width: 10px;
   position: absolute;
-  top: 2.5rem;
-  left: 10rem;
+  top: 3rem;
+  left: 7rem;
 }
 .SideMenu:hover {
   left: 0;
