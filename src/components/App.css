@@ -82,20 +82,43 @@
 }
 
 .Events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 8rem;
+  height: 10rem;
+  background-color: var(--whiteYellow);
+  font-size: 48px;
+  border: 1px solid black;
+  text-align: center;
 }
-
-.categoryList {
-  min-height: 30rem;
+.mainContent {
+  display: flex;
+  margin: 0 auto;
+  max-width: 60rem;
+  width: 70%;
+  min-height: 20rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
+.box {
+  background-color: var(--dark);
+  width: 12rem;
+  height: 10rem;
+  margin: 1rem;
+  border: 1px solid var(--whiteYellow);
+  box-shadow: 0 0 0.9rem 0.01rem var(--dark);
+  transition: all 0.5s;
+}
+.box:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
 .SideMenu {
   position: fixed;
   top: calc(50% - 7.5rem);
   width: 7rem;
   height: 12rem;
-  border: 1px solid black;
   left: -7rem;
   transition: left 0.5s;
 }
@@ -117,6 +140,11 @@
   flex-direction: column;
   list-style: none;
   height: 100%;
+  border: 1px solid black;
+
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .SideMenu ul li {

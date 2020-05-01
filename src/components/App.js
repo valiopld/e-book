@@ -32,7 +32,24 @@ function App() {
         <input type="text" placeholder="Search a book..." />
       </div>
 
-      <div className="Events"></div>
+      <div className="Events">EVENT CONTAINER</div>
+      <div className="mainContent">
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+        <div className="box" />
+      </div>
       <div className="SideMenu">
         <ul>
           <li>List 1</li>
@@ -44,7 +61,6 @@ function App() {
           <li>List 7</li>
         </ul>
       </div>
-      <div className="categoryList"></div>
       <div className="Footer">This is the Footer </div>
     </div>
   );
