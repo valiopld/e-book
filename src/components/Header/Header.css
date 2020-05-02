@@ -1,0 +1,33 @@
+.Header {
+  background-color: var(--white);
+}
+.Header .header-inside {
+  max-width: 80rem;
+  height: 4rem;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.Header .header-inside .logo {
+  width: 18rem;
+  height: 12rem;
+  background-image: url("../../assets/logobook.png");
+  background-size: cover;
+  background-position: 0;
+}
+.Header .header-inside ul {
+  display: flex;
+  list-style: none;
+  align-self: flex-start;
+}
+.Header .header-inside ul li {
+  margin: 0.5rem;
+  transition: all 0.3s;
+  font-size: 0.7rem;
+}
+.Header .header-inside ul li:hover {
+  color: var(--green);
+  cursor: pointer;
+  transform: scale(1.1);
+}

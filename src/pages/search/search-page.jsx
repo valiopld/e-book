@@ -1,14 +1,12 @@
 import React from "react";
 
-import "./home-page.css";
+import "./search-page.css";
+import __fakeDB from "../../database/";
 
-class HomePage extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
-    return <div className="home-page">This is Home Page</div>;
-  }
-}
-export default HomePage;
+const SearchPage = (props) => {
+  let f = props.match.params.filter;
+  console.log(props);
+
+  return <div className="search-page">YOU LOOKING FOR {f}</div>;
+};
+export default SearchPage;

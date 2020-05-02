@@ -1,0 +1,11 @@
+.EventBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10rem;
+  background-color: var(--whiteYellow);
+  font-size: 48px;
+  border: 1px solid black;
+  text-align: center;
+}

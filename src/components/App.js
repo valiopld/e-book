@@ -1,67 +1,32 @@
 import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
+
+import HomePage from "../pages/home/home-page";
+import SearchPage from "../pages/search/search-page";
+
+import { Header } from "./Header/Header";
+import { TopNavBar } from "./TopNavBar/TopNavBar";
+import SearchBar from "./SearchBar/SearchBar";
+import { EventBar } from "./EventBar/EventBar";
+import { SideMenu } from "./SideMenu/SideMenu";
+import { Footer } from "./Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <div className="Header">
-        <div className="header-container">
-          <div className="logo" />
-          <ul>
-            <li>FaceBook</li>
-            <li>Twitter</li>
-            <li>Social</li>
-            <li>Something</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="TopNavBar">
-        <ul>
-          <li>Link 1</li>
-          <li>Link 2</li>
-          <li>Link 3</li>
-          <li>Link 4</li>
-          <li>Link 5</li>
-          <li>Link 6</li>
-          <li>Link 7</li>
-        </ul>
-      </div>
-
-      <div className="SearchBox">
-        <input type="text" placeholder="Search a book..." />
-      </div>
-
-      <div className="Events">EVENT CONTAINER</div>
-      <div className="mainContent">
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-        <div className="box" />
-      </div>
-      <div className="SideMenu">
-        <ul>
-          <li>List 1</li>
-          <li>List 2</li>
-          <li>List 3</li>
-          <li>List 4</li>
-          <li>List 5</li>
-          <li>List 6</li>
-          <li>List 7</li>
-        </ul>
-      </div>
-      <div className="Footer">This is the Footer </div>
+      <BrowserRouter>
+        <Header />
+        <TopNavBar />
+        <SearchBar />
+        <EventBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/search/:filter" component={SearchPage} />
+        </Switch>
+        <SideMenu />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

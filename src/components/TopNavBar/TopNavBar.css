@@ -1,0 +1,27 @@
+.TopNavBar {
+  width: 100%;
+  background-color: var(--dark);
+  border-top: 5px solid var(--green);
+  border-bottom: 5px solid var(--green);
+  color: azure;
+}
+
+.TopNavBar ul {
+  display: flex;
+  margin: 0 auto;
+  list-style: none;
+  justify-content: space-around;
+  max-width: 80rem;
+}
+.TopNavBar ul li {
+  padding: 0.8rem 0.5rem;
+  color: var(--yellow);
+  transition: all 0.3s;
+  width: 100%;
+  text-align: center;
+}
+.TopNavBar ul li:hover {
+  color: var(--dark);
+  cursor: pointer;
+  background-color: var(--yellow);
+}

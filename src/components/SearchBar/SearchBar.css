@@ -1,0 +1,30 @@
+.SearchBar {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--dark);
+}
+.SearchBar input {
+  height: 3rem;
+  position: relative;
+}
+
+.SugBox {
+  list-style: none;
+  position: absolute;
+  top: 12rem;
+}
+
+.SugBox a {
+  display: block;
+  background-color: white;
+  border-top: 1px solid black;
+  padding: 0.2rem;
+  width: 50rem;
+  text-decoration: none;
+  color: black;
+}
