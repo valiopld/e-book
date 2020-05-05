@@ -50,6 +50,7 @@ class SearchBar extends React.Component {
           onChange={this.adding}
           placeholder="Search a book..."
         />
+        <div className="lupa"></div>
         <ul className="SugBox">{allBooks}</ul>
       </div>
     );

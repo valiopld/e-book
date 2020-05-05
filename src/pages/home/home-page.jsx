@@ -2,6 +2,7 @@ import React from "react";
 
 import "./home-page.css";
 
+import { Box } from "./Box/Box";
 class HomePage extends React.Component {
   constructor() {
     super();
@@ -9,7 +10,22 @@ class HomePage extends React.Component {
   }
 
   render() {
-    return <div className="home-page">This is Home Page</div>;
+    return (
+      <div className="home-page">
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+      </div>
+    );
   }
 }
 export default HomePage;

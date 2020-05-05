@@ -1,12 +1,16 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./Header.css";
 
+import SearchBar from "../SearchBar/SearchBar";
 export const Header = () => {
   return (
     <div className="Header">
       <div className="header-inside">
-        <div className="logo" />
+        <Link to="/">
+          <div className="logo" />
+        </Link>
+        <SearchBar />
         <ul>
           <li>FaceBook</li>
           <li>Twitter</li>

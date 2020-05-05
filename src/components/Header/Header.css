@@ -3,15 +3,15 @@
 }
 .Header .header-inside {
   max-width: 80rem;
-  height: 4rem;
+  height: 8rem;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
-  align-items: center;
 }
 .Header .header-inside .logo {
-  width: 18rem;
-  height: 12rem;
+  align-self: flex-start;
+  width: 20rem;
+  height: 4rem;
   background-image: url("../../assets/logobook.png");
   background-size: cover;
   background-position: 0;

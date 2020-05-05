@@ -1,15 +1,13 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
 
-import HomePage from "../pages/home/home-page";
-import SearchPage from "../pages/search/search-page";
+import "./App.css";
 
 import { Header } from "./Header/Header";
 import { TopNavBar } from "./TopNavBar/TopNavBar";
-import SearchBar from "./SearchBar/SearchBar";
 import { EventBar } from "./EventBar/EventBar";
 import { SideMenu } from "./SideMenu/SideMenu";
+import { Main } from "./Main/Main";
 import { Footer } from "./Footer/Footer";
 
 function App() {
@@ -17,14 +15,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <TopNavBar />
-        <SearchBar />
         <EventBar />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/search/:filter" component={SearchPage} />
-        </Switch>
+        <TopNavBar />
         <SideMenu />
+        <Main />
         <Footer />
       </BrowserRouter>
     </div>

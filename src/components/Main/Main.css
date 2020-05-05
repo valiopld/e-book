@@ -1,9 +1,7 @@
-.MainContent {
+.Main {
   display: flex;
   margin: 0 auto;
   max-width: 60rem;
   width: 70%;
-  min-height: 20rem;
-  flex-wrap: wrap;
   justify-content: center;
 }
