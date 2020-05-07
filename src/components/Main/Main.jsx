@@ -13,7 +13,7 @@ export const Main = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search/:filter" component={SearchPage} />
-        <Route path="/book" component={Book} />
+        <Route path="/book/:id" component={Book} />
       </Switch>
     </div>
   );

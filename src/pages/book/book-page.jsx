@@ -1,73 +1,53 @@
 import React from "react";
 
 import "./book-page.css";
+import * as DB from "../../database/db.json";
+const Book = (props) => {
+  let id = parseInt(props.match.params.id);
 
-const Book = () => {
+  //-------------------------------------------------------
+  let DB_OBJ = DB.default;
+  let book = DB_OBJ.filter((book) => book.id === id)[0];
+  //--------------------------------------------------------
+
+  const imgUrl = book.image;
+  const description = book.description;
+  const percent = book.rating.percent;
+  const nRates = book.rating.nRates;
+
+  const reviews = [];
+  for (let i = 0; i < 4; ++i) {
+    let newReview = (
+      <div key={i} className="review">
+        <div className="author-info">{book.comments.prof[i].author}</div>
+        <div className="review-text">{book.comments.prof[i].comment}</div>
+      </div>
+    );
+    reviews.push(newReview);
+  }
+  const comments = [];
+  for (let i = 0; i < 4; ++i) {
+    let newComment = <div key={i} className="commment"></div>;
+    comments.push(newComment);
+  }
   return (
     <div className="book-page">
       <div className="main-book-section">
         <div className="left">
-          <div className="cover-image" />
+          <img alt="cover" src={imgUrl} className="cover-image" />
           <div className="addButton">Add to my Library</div>
           <div className="ratingContainer">
-            <span>85%</span>
-            <span>120 verified ratings</span>
+            <span>{percent}</span>
+            <span>{nRates} verified ratings</span>
           </div>
         </div>
         <div className="description">
           <p>Description</p>
-          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </span>
+          <span>{description}</span>
         </div>
       </div>
-      <div className="reviewContainer">
-        <div className="review">
-          <div className="author-info">Valentin Peshev</div>
-          <div className="review-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat ...
-          </div>
-        </div>
-        <div className="review">
-          <div className="author-info">Ivelina Ivanova</div>
-          <div className="review-text">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia ...
-          </div>
-        </div>
-        <div className="review">
-          <div className="author-info">Valentin Peshev</div>
-          <div className="review-text">
-            Dolor magna eget est lorem ipsum dolor sit amet consectetur. Quis
-            vel eros donec ac. Tortor aliquam nulla facilisi cras fermentum odio
-            eu feugiat pretium. Massa enim nec dui nunc mattis enim ut tellus
-            elementum ...
-          </div>
-        </div>
-        <div className="review">
-          <div className="author-info">Valentin Peshev</div>
-          <div className="review-text">
-            Tortor aliquam nulla facilisi cras fermentum odio eu feugiat
-            pretium. Massa enim nec dui nunc mattis enim ut tellus elementum.
-            Adipiscing enim eu turpis egestas pretium aenean. Venenatis lectus
-            magna fringilla urna porttitor rhoncus....
-          </div>
-        </div>
-      </div>
+      <div className="reviewContainer">{reviews}</div>
+      <div className="comments-container">{comments}</div>
     </div>
   );
 };
