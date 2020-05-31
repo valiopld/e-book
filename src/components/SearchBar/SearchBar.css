@@ -30,14 +30,17 @@
   display: flex;
   flex-direction: column;
   top: 7rem;
+  border: 1px solid black;
 }
 
 .SugBox a {
   display: block;
-  background-color: white;
-  border-top: 1px solid black;
+  background-color: rgb(240, 248, 238);
   padding: 0.2rem;
-  width: 15rem;
+  width: 13.5rem;
   text-decoration: none;
   color: black;
+}
+.SugBox a:hover {
+  background-color: khaki;
 }

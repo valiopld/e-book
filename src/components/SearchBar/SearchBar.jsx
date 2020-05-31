@@ -37,7 +37,6 @@ class SearchBar extends React.Component {
         <Link
           to={`/search/${this.state.filter.replace(/\s/g, "-")}`}
           key="custom"
-          evasi="asd"
         >
           Custom Search: {this.state.filter}
         </Link>
