@@ -19,6 +19,7 @@
   transition: all 0.3s;
   width: 100%;
   text-align: center;
+  white-space: nowrap;
 }
 .TopNavBar ul li:hover {
   color: var(--dark);
