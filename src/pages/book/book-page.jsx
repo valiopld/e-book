@@ -1,55 +1,81 @@
 import React from "react";
 
 import "./book-page.css";
-import * as DB from "../../database/db.json";
-const Book = (props) => {
-  let id = parseInt(props.match.params.id);
 
-  //-------------------------------------------------------
-  let DB_OBJ = DB.default;
-  let book = DB_OBJ.filter((book) => book.id === id)[0];
-  //--------------------------------------------------------
+import { firestore } from "../../firebase/firebase.utils";
 
-  const imgUrl = book.image;
-  const description = book.description;
-  const percent = book.rating.percent;
-  const nRates = book.rating.nRates;
+class Book extends React.Component {
+  constructor(props) {
+    super(props);
+    this.id = parseInt(props.match.params.id);
 
-  const reviews = [];
-  for (let i = 0; i < 4; ++i) {
-    let newReview = (
-      <div key={i} className="review">
-        <div className="author-info">{book.comments.prof[i].author}</div>
-        <div className="review-text">{book.comments.prof[i].comment}</div>
-      </div>
-    );
-    reviews.push(newReview);
+    this.state = {
+      book: null,
+      isLoading: true,
+    };
   }
-  const comments = [];
-  for (let i = 0; i < 4; ++i) {
-    let newComment = <div key={i} className="commment"></div>;
-    comments.push(newComment);
+
+  componentDidMount() {
+    const db_books = firestore.collection("books");
+
+    db_books.get().then((snap) => {
+      const book = snap.docs.find((bk) => bk.data().id === this.id);
+
+      book
+        ? this.setState({ book: book.data(), isLoading: false })
+        : this.props.history.push("/");
+    });
   }
-  return (
-    <div className="book-page">
-      <div className="main-book-section">
-        <div className="left">
-          <img alt="cover" src={imgUrl} className="cover-image" />
-          <div className="addButton">Add to my Library</div>
-          <div className="ratingContainer">
-            <span>{percent}</span>
-            <span>{nRates} verified ratings</span>
+  render() {
+    const { image, description, rating } = this.state.book
+      ? this.state.book
+      : "";
+    return !this.state.isLoading ? (
+      <div className="book-page">
+        <div className="main-book-section">
+          <div className="left">
+            <img alt="cover" src={image} className="cover-image" />
+            <div className="addButton">Add to my Library</div>
+            <div className="ratingContainer">
+              <span>{rating.percent ? rating.percent : 0} %</span>
+              <span>{rating.nRates} verified ratings</span>
+            </div>
+          </div>
+          <div className="description">
+            <p>Description</p>
+            <span>{description}</span>
           </div>
         </div>
-        <div className="description">
-          <p>Description</p>
-          <span>{description}</span>
+        <div className="reviewContainer">
+          <div className="review">
+            <div className="author-info">AuthorInf</div>
+            <div className="review-text">Author COmment</div>
+          </div>
+
+          <div className="review">
+            <div className="author-info">AuthorInf</div>
+            <div className="review-text">Author COmment</div>
+          </div>
+          <div className="review">
+            <div className="author-info">AuthorInf</div>
+            <div className="review-text">Author COmment</div>
+          </div>
+          <div className="review">
+            <div className="author-info">AuthorInf</div>
+            <div className="review-text">Author COmment</div>
+          </div>
+        </div>
+        <div className="comments-container">
+          <div className="commment"></div>
+          <div className="commment"></div>
+          <div className="commment"></div>
+          <div className="commment"></div>
         </div>
       </div>
-      <div className="reviewContainer">{reviews}</div>
-      <div className="comments-container">{comments}</div>
-    </div>
-  );
-};
+    ) : (
+      <div>LOADING:</div>
+    );
+  }
+}
 
 export default Book;
