@@ -4,7 +4,7 @@ import "./book-page.css";
 
 import { firestore } from "../../firebase/firebase.utils";
 
-const Book = (props) => {
+const BookPage = (props) => {
   const id = parseInt(props.match.params.id);
   const [getBookData, setBookData] = useState(null);
   const [getIsLoading, setIsLoading] = useState(true);
@@ -70,4 +70,4 @@ const Book = (props) => {
   );
 };
 
-export default Book;
+export default BookPage;
