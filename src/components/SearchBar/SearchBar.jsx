@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "./SearchBar.css";
 
 import { firestore } from "../../firebase/firebase.utils";
 
 const SearchBar = () => {
   const [getFinded, setFinded] = useState([]);
+
   const search = (event) => {
     const searchValue = event.target.value;
 
@@ -34,10 +36,10 @@ const SearchBar = () => {
       <div className="lupa"></div>
       <ul className="SugBox">
         {getFinded.map((a) => {
-          let x = `ID: ${a.id}, Name: ${a.name}, Author: ${a.author} `;
+          let x = `Name: ${a.name}, Author: ${a.author} `;
 
           return (
-            <Link onClick={() => setFinded([])} to={`/book/${a.id}`} key={a.id}>
+            <Link to={`/book/${a.id}`} key={a.id}>
               {x}
             </Link>
           );

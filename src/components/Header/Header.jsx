@@ -14,8 +14,7 @@ export const Header = () => {
         <ul>
           <li>FaceBook</li>
           <li>Twitter</li>
-          <li>Social</li>
-          <li>Something</li>
+          <li>BLOG</li>
         </ul>
       </div>
     </div>
