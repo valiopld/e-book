@@ -10,6 +10,26 @@ class AddBook extends React.Component {
     theObject: {},
   };
 
+  generateRandomID = () => {
+    let id = Math.floor(Math.random() * 899999 + 100000);
+    firestore
+      .collection("books")
+      .get()
+      .then((snap) => {
+        const bookArray = snap.docs.find((bk) => {
+          return bk.data().id === id;
+        });
+        if (!bookArray) {
+          console.log("genereted ID: " + id);
+
+          return id;
+        } else {
+          console.log(id + "is Busy");
+          return this.generateRandomID();
+        }
+      });
+    return id;
+  };
   addToDB = (bookObj) => {
     firestore
       .collection("books")
@@ -27,7 +47,7 @@ class AddBook extends React.Component {
     const author = this.state.bookauthor;
     const image = this.state.booktIMG;
     const description = this.state.description;
-    const id = 1204;
+    const id = this.generateRandomID();
 
     const rating = {
       nRates: 0,
@@ -57,27 +77,27 @@ class AddBook extends React.Component {
           onChange={(e) => this.setState({ bookname: e.target.value })}
           type="text"
         ></input>
+        <br />
         Book Author:
         <input
           id="author"
           onChange={(e) => this.setState({ bookauthor: e.target.value })}
           type="text"
         ></input>
+        <br />
         image URL :
         <input
           id="image"
           onChange={(e) => this.setState({ booktIMG: e.target.value })}
           type="text"
         ></input>
+        <br />
         description:
         <input
           id="description"
           onChange={(e) => this.setState({ description: e.target.value })}
           type="text"
         ></input>
-        <button id="add" onClick={() => this.addToDB(this.state.theObject)}>
-          Add
-        </button>
         <button
           id="add"
           onClick={() =>
@@ -87,6 +107,9 @@ class AddBook extends React.Component {
           }
         >
           Create Object
+        </button>
+        <button id="add" onClick={() => this.addToDB(this.state.theObject)}>
+          Add
         </button>
         <br />
         <textarea

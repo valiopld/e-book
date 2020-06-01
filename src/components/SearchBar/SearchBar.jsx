@@ -1,58 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SearchBar.css";
-import __fakeDB from "../../database/";
 
-class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = { filter: "" };
-  }
+import { firestore } from "../../firebase/firebase.utils";
 
-  adding = (e) => {
-    this.setState({ filter: e.target.value });
+const SearchBar = () => {
+  const [getFinded, setFinded] = useState([]);
+  const search = (event) => {
+    const searchValue = event.target.value;
+
+    if (searchValue.length > 3) {
+      firestore
+        .collection("books")
+        .get()
+        .then((snap) => {
+          const bookArray = snap.docs.filter((bk) => {
+            return bk
+              .data()
+              .name.toLowerCase()
+              .includes(searchValue.toLowerCase());
+          });
+          if (bookArray.length > 0) {
+            setFinded(bookArray.map((a) => a.data()));
+          }
+        });
+    } else {
+      setFinded([]);
+    }
   };
-
-  render() {
-    let allBooks;
-    if (this.state.filter !== "") {
-      allBooks = __fakeDB
-        .filter((b, i) => {
-          return (
-            b.name.toLowerCase().includes(this.state.filter.toLowerCase()) ||
-            b.author.toLowerCase().includes(this.state.filter.toLowerCase())
-          );
-        })
-        .map((a, i) => {
-          let x = `ID: ${a.ID}, Name: ${a.name}, Author: ${a.author} `;
+  return (
+    <div className="search-bar">
+      <input type="text" onChange={search} placeholder="Search a book..." />
+      <div className="lupa"></div>
+      <ul className="SugBox">
+        {getFinded.map((a) => {
+          let x = `ID: ${a.id}, Name: ${a.name}, Author: ${a.author} `;
 
           return (
-            <Link to={a.link} key={a.ID}>
+            <Link onClick={() => setFinded([])} to={`/book/${a.id}`} key={a.id}>
               {x}
             </Link>
           );
-        })
-        .filter((a, c) => c < 5);
-      allBooks.unshift(
-        <Link
-          to={`/search/${this.state.filter.replace(/\s/g, "-")}`}
-          key="custom"
-        >
-          Custom Search: {this.state.filter}
-        </Link>
-      );
-    }
-    return (
-      <div className="SearchBar">
-        <input
-          type="text"
-          onChange={this.adding}
-          placeholder="Search a book..."
-        />
-        <div className="lupa"></div>
-        <ul className="SugBox">{allBooks}</ul>
-      </div>
-    );
-  }
-}
+        })}
+      </ul>
+    </div>
+  );
+};
+
 export default SearchBar;

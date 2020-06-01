@@ -13,6 +13,9 @@
   justify-content: space-around;
   max-width: 80rem;
 }
+.TopNavBar ul a {
+  width: 100%;
+}
 .TopNavBar ul li {
   padding: 0.8rem 0.5rem;
   color: var(--yellow);

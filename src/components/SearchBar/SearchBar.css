@@ -1,4 +1,4 @@
-.SearchBar {
+.search-bar {
   background-color: var(--white);
   display: flex;
   width: 20%;
@@ -10,13 +10,13 @@
   background-color: white;
   border-radius: 1rem;
 }
-.SearchBar input {
+.search-bar input {
   height: 2rem;
   position: relative;
   border: none;
   width: 75%;
 }
-.SearchBar .lupa {
+.search-bar .lupa {
   width: 1.5rem;
   height: 1.5rem;
 

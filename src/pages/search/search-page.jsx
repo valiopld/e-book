@@ -5,8 +5,6 @@ import "./search-page.css";
 
 const SearchPage = (props) => {
   let f = props.match.params.filter;
-  console.log(props);
-
   return (
     <div className="search-page">
       <h1>
