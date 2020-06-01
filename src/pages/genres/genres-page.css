@@ -1,5 +1,14 @@
 .genres-page {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.genres-page h1 {
+  margin: 2rem;
+}
+.genres-page .boxes {
+  display: flex;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;

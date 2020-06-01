@@ -6,6 +6,12 @@
   border: 1px solid var(--whiteYellow);
   box-shadow: 0 0 0.9rem 0.01rem var(--dark);
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--whiteYellow);
 }
 .Box:hover {
   cursor: pointer;
